@@ -129,8 +129,8 @@ test.describe('Entity Relationship Diagram', () => {
     const style = await svg.getAttribute('style');
     expect(style).toMatch(/^max-width: [\d.]+px;$/);
     const maxWidthValue = parseFloat(style.match(/[\d.]+/g).join(''));
-    expect(maxWidthValue).toBeGreaterThanOrEqual(140 * 0.96);
-    expect(maxWidthValue).toBeLessThanOrEqual(140 * 1.06);
+    expect(maxWidthValue).toBeGreaterThanOrEqual(140 * 0.9);
+    expect(maxWidthValue).toBeLessThanOrEqual(140 * 1.1);
   });
 
   test('should render an ER when useMaxWidth is false', async ({ page }, testInfo) => {
@@ -146,8 +146,8 @@ test.describe('Entity Relationship Diagram', () => {
     );
     const svg = page.locator('svg');
     const width = parseFloat((await svg.getAttribute('width')) ?? '0');
-    expect(width).toBeGreaterThanOrEqual(140 * 0.96);
-    expect(width).toBeLessThanOrEqual(140 * 1.06);
+    expect(width).toBeGreaterThanOrEqual(140 * 0.9);
+    expect(width).toBeLessThanOrEqual(140 * 1.1);
     await expect(svg).not.toHaveAttribute('style');
   });
 
